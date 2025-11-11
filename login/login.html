@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-wrapper">
+        <!-- Left Side - Brand Section -->
+        <div class="brand-section">
+            <div class="brand-header">
+                <div class="logo-icon">📅</div>
+                <div class="brand-text">
+                    <h1>Eventify</h1>
+                    <p>Campus Event Management</p>
+                </div>
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-content">
+                        <h3>Centralized Events</h3>
+                        <p>All campus events in one place, no more WhatsApp chaos</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-content">
+                        <h3>Easy Registration</h3>
+                        <p>Sign up and check in using QR codes instantly</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <div class="feature-content">
+                        <h3>Gamified Experience</h3>
+                        <p>Earn points, unlock badges, and climb leaderboards</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h3>Real-time Analytics</h3>
+                        <p>Admins get instant insights and event management tools</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Forms -->
+        <div class="login-section">
+            <div class="login-container">
+                <!-- Tab Buttons -->
+                <div class="tab-buttons">
+                    <button class="tab-button active" onclick="switchTab('student')">
+                        👤 Student Login
+                    </button>
+                    <button class="tab-button" onclick="switchTab('admin')">
+                        🔑 Admin Login
+                    </button>
+                </div>
+
+                <!-- Login Forms Container -->
+                <div class="login-form-container">
+                    <!-- Student Login Form -->
+                    <form id="studentForm" class="form-hidden">
+                        <div class="error-message" id="studentError"></div>
+                        <div class="success-message" id="studentSuccess"></div>
+
+                        <div class="form-group">
+                            <label for="rollNumber">Roll Number</label>
+                            <input 
+                                type="text" 
+                                id="rollNumber" 
+                                name="rollNumber"
+                                placeholder="e.g., 20CS001" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentPassword">Password</label>
+                            <input 
+                                type="password" 
+                                id="studentPassword" 
+                                name="studentPassword"
+                                placeholder="Enter your password" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-footer">
+                            <label class="remember-me">
+                                <input type="checkbox" name="rememberMe">
+                                <label for="rememberMe">Remember me</label>
+                            </label>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="login-button">Login</button>
+
+                        <div class="signup-prompt">
+                            Don't have an account? <a href="#">Sign up here</a>
+                        </div>
+                    </form>
+
+                    <!-- Admin Login Form -->
+                    <form id="adminForm">
+                        <div class="error-message" id="adminError"></div>
+                        <div class="success-message" id="adminSuccess"></div>
+
+                        <div class="form-group">
+                            <label for="adminEmail">Email Address</label>
+                            <input 
+                                type="email" 
+                                id="adminEmail" 
+                                name="adminEmail"
+                                placeholder="e.g., admin@eventify.com" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adminPassword">Password</label>
+                            <input 
+                                type="password" 
+                                id="adminPassword" 
+                                name="adminPassword"
+                                placeholder="Enter your password" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="clubCode">Club Code</label>
+                            <input 
+                                type="text" 
+                                id="clubCode" 
+                                name="clubCode"
+                                placeholder="e.g., TECH-CLUB-001" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-footer">
+                            <label class="remember-me">
+                                <input type="checkbox" name="rememberAdminMe">
+                                <label for="rememberAdminMe">Remember me</label>
+                            </label>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="login-button">Login</button>
+
+                        <div class="signup-prompt">
+                            New club admin? <a href="#">Request access here</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
