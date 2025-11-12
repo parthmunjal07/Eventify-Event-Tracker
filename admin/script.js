@@ -3,6 +3,12 @@ let currentEditingId = null;
 let allEvents = [];
 let currentFilter = 'all';
 
+const logoutBtn = document.getElementById('logout-btn');
+logoutBtn.addEventListener('click', () => {
+    if (confirm("Are you sure you want to logout?")) {
+        window.location.href = "../Landing/index.html";
+    }
+})
 // Load events from localStorage on page load
 document.addEventListener('DOMContentLoaded', () => {
     loadEvents();

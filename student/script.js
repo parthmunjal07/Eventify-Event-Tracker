@@ -397,7 +397,8 @@ function updateSummary() {
 // Logout Function
 function logout() {
   if (confirm("Are you sure you want to logout?")) {
-    Window.location.href = "../Landing/index.html"  }
+    window.location.href = "../Landing/index.html";
+  }
 }
 
 // Initialize on load
