@@ -397,10 +397,7 @@ function updateSummary() {
 // Logout Function
 function logout() {
   if (confirm("Are you sure you want to logout?")) {
-    alert("You have been logged out successfully!");
-    // Redirect to login page (or home page)
-    window.location.href = "/login/login.html";
-  }
+    Window.location.href = "../Landing/index.html"  }
 }
 
 // Initialize on load

@@ -111,9 +111,9 @@ document.getElementById("studentForm").addEventListener("submit", function (e) {
 
   // Simulate redirect after 1.5 seconds
   setTimeout(() => {
-    console.log("Redirecting to student dashboard...");
-    // window.location.href = '/student-dashboard';
-  }, 1500);
+    console.log("Redirecting to student dashboard...")
+    window.location.href= "../student/dashboard.html"
+  }, 700);
 });
 
 // Admin Form Submission
@@ -169,8 +169,8 @@ document.getElementById("adminForm").addEventListener("submit", function (e) {
   // Simulate redirect after 1.5 seconds
   setTimeout(() => {
     console.log("Redirecting to admin dashboard...");
-    // window.location.href = '/admin-dashboard';
-  }, 1500);
+     window.location.href = "../admin/admin.html";
+  }, 700);
 });
 
 // Set default form on page load
