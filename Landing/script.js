@@ -1,5 +1,4 @@
-// --- BEGIN EDITED CODE ---
-// Smooth Scrolling for Navigation Links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -13,7 +12,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar Background Change on Scroll
+
 const navbar = document.querySelector('.navbar');
 let lastScroll = 0;
 window.addEventListener('scroll', () => {
@@ -26,7 +25,7 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Intersection Observer for Fade-in Animations
+
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -64,7 +63,7 @@ document.querySelectorAll('.stats-card').forEach((card, index) => {
     observer.observe(card);
 });
 
-// Counter Animation for Stats
+
 const animateCounter = (element, target) => {
     let current = 0;
     const increment = target / 100;
@@ -93,10 +92,9 @@ document.querySelectorAll('.stats-card').forEach(card => {
     statsObserver.observe(card);
 });
 
-// --- CRITICAL EDIT: Button Click Handlers now redirect to login.html ---
 document.querySelectorAll('.btn-primary, .btn-secondary, .cta-btn').forEach(button => {
     button.addEventListener('click', (e) => {
-        // Add ripple effect
+       
         const ripple = document.createElement('span');
         const rect = button.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
@@ -111,7 +109,7 @@ document.querySelectorAll('.btn-primary, .btn-secondary, .cta-btn').forEach(butt
         button.appendChild(ripple);
         setTimeout(() => ripple.remove(), 600);
 
-        // Modified logic: All major CTAs should send to login page for consistency
+   
         if (button.textContent.includes('Get Started') || button.textContent.includes('Start Managing')) {
             window.location.href = "../login/login.html"
         } else if (button.textContent.includes('Demo')) {
@@ -120,9 +118,7 @@ document.querySelectorAll('.btn-primary, .btn-secondary, .cta-btn').forEach(butt
     });
 });
 
-// --- END EDIT ---
 
-// Add CSS for ripple effect dynamically
 const style = document.createElement('style');
 style.textContent = `
 .ripple {
@@ -141,7 +137,7 @@ style.textContent = `
 }`;
 document.head.appendChild(style);
 
-// Floating cards animation enhancement
+
 const floatingCards = document.querySelectorAll('.floating-card');
 floatingCards.forEach((card, index) => {
     card.addEventListener('mouseenter', () => {
@@ -152,7 +148,7 @@ floatingCards.forEach((card, index) => {
         card.style.transform = 'scale(1)';
     });
 });
-// Feature card tilt effect
+
 document.querySelectorAll('.feature-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -168,7 +164,7 @@ document.querySelectorAll('.feature-card').forEach(card => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
     });
 });
-// Mobile Menu Toggle (for future mobile menu implementation)
+
 const createMobileMenu = () => {
     const navLinks = document.querySelector('.nav-links');
     const hamburger = document.createElement('div');
@@ -182,12 +178,11 @@ const createMobileMenu = () => {
         });
     }
 };
-// Initialize on load
+
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
     document.body.style.transition = 'opacity 0.5s ease';
 });
-// Log page view (can be replaced with actual analytics)
+
 console.log('Eventify Landing Page Loaded');
 console.log('Features: Event Management, QR Check-in, Gamification, Real-time Updates');
-// --- END OF FILE ---

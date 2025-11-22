@@ -1,4 +1,4 @@
-// Initialize the application
+
 let currentEditingId = null;
 let allEvents = [];
 let currentFilter = 'all';
@@ -9,7 +9,7 @@ logoutBtn.addEventListener('click', () => {
         window.location.href = "../Landing/index.html";
     }
 })
-// Load events from localStorage on page load
+
 document.addEventListener('DOMContentLoaded', () => {
     loadEvents();
     updateStats();
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     attachEventListeners();
 });
 
-// Attach all event listeners
+
 function attachEventListeners() {
     const addEventBtn = document.getElementById('addEventBtn');
     const eventForm = document.getElementById('eventForm');
@@ -49,7 +49,7 @@ function attachEventListeners() {
         deleteModal.classList.remove('active');
     });
 
-    // Close modals when clicking outside
+    
     window.addEventListener('click', (e) => {
         if (e.target === eventModal) {
             closeModal();
@@ -60,7 +60,7 @@ function attachEventListeners() {
     });
 }
 
-// Open modal for adding new event
+
 function openAddModal() {
     currentEditingId = null;
     document.getElementById('modalTitle').textContent = 'Add New Event';
@@ -68,7 +68,7 @@ function openAddModal() {
     document.getElementById('eventModal').classList.add('active');
 }
 
-// Open modal for editing event
+
 function openEditModal(id) {
     const event = allEvents.find(e => e.id === id);
     if (!event) return;
@@ -85,13 +85,13 @@ function openEditModal(id) {
     document.getElementById('eventModal').classList.add('active');
 }
 
-// Close modal
+
 function closeModal() {
     document.getElementById('eventModal').classList.remove('active');
     currentEditingId = null;
 }
 
-// Handle form submission
+
 function handleFormSubmit(e) {
     e.preventDefault();
 
@@ -106,13 +106,13 @@ function handleFormSubmit(e) {
     };
 
     if (currentEditingId) {
-        // Update existing event
+        
         const index = allEvents.findIndex(e => e.id === currentEditingId);
         if (index !== -1) {
             allEvents[index] = { ...allEvents[index], ...eventData };
         }
     } else {
-        // Add new event
+        
         const newEvent = {
             id: Date.now(),
             ...eventData,
@@ -129,7 +129,7 @@ function handleFormSubmit(e) {
     showNotification('Event saved successfully!');
 }
 
-// Delete event
+
 function deleteEvent(id) {
     currentDeleteId = id;
     document.getElementById('deleteModal').classList.add('active');
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Change event status
+
 function changeStatus(id, newStatus) {
     const event = allEvents.find(e => e.id === id);
     if (event) {
@@ -164,7 +164,7 @@ function changeStatus(id, newStatus) {
     }
 }
 
-// Filter and render events
+
 function filterAndRenderEvents() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     
@@ -178,7 +178,7 @@ function filterAndRenderEvents() {
     renderEvents(filtered);
 }
 
-// Render events in table
+
 function renderEvents(events = allEvents) {
     const tableBody = document.getElementById('eventsTableBody');
     const emptyState = document.getElementById('emptyState');
@@ -221,13 +221,13 @@ function renderEvents(events = allEvents) {
     });
 }
 
-// Format date
+
 function formatDate(dateString) {
     const options = { month: 'short', day: 'numeric', year: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
 }
 
-// Get status class for styling
+
 function getStatusClass(status) {
     switch(status) {
         case 'To Be Announced':
@@ -243,14 +243,14 @@ function getStatusClass(status) {
     }
 }
 
-// Get next status for cycling
+
 function getNextStatus(currentStatus) {
     const statuses = ['To Be Announced', 'Upcoming', 'Ongoing', 'Completed'];
     const currentIndex = statuses.indexOf(currentStatus);
     return statuses[(currentIndex + 1) % statuses.length];
 }
 
-// Update statistics
+
 function updateStats() {
     const total = allEvents.length;
     const upcoming = allEvents.filter(e => e.status === 'Upcoming').length;
@@ -263,18 +263,18 @@ function updateStats() {
     document.getElementById('completedEvents').textContent = completed;
 }
 
-// Save events to localStorage
+
 function saveEvents() {
     localStorage.setItem('eventifyEvents', JSON.stringify(allEvents));
 }
 
-// Load events from localStorage
+
 function loadEvents() {
     const saved = localStorage.getItem('eventifyEvents');
     if (saved) {
         allEvents = JSON.parse(saved);
     } else {
-        // Add sample events for demo
+        
         allEvents = [
             {
                 id: 1,
@@ -317,7 +317,7 @@ function loadEvents() {
     }
 }
 
-// Show notification
+
 function showNotification(message) {
     const notification = document.createElement('div');
     notification.style.cssText = `
@@ -341,7 +341,7 @@ function showNotification(message) {
     }, 3000);
 }
 
-// Add animation styles
+
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideInRight {
